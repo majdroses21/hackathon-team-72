@@ -1,9 +1,9 @@
 # Nuxt dev/build outputs
 .output
 .data
-.nuxt
-.nitro
-.cache
+# .nuxt
+# .nitro
+# .cache
 dist
 
 # Node dependencies
@@ -19,6 +19,6 @@ logs
 .idea
 
 # Local env files
-.env
-.env.*
-!.env.example
+# .env
+# .env.*
+# !.env.example
