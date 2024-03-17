@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1 class="text-h1">Hello From app.vue</h1>
-    <buttons-group />
+    <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
   </div>
 </template>
+
+<style>
+body {
+  box-sizing: border-box;
+  height: 3000000px ;
+}
+
+</style>
