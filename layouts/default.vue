@@ -2,6 +2,8 @@
     <div>
         <NavBar />
         <Header />
+        <slot />
+        <Footer />
 
     </div>
 

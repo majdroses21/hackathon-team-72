@@ -1,46 +1,58 @@
 <template>
-<v-app class="navbar">
-  <v-app-bar app color="#EEE">
-    <v-btn depressed>
-      <i class="fal fa-sign-in me-3" />
-      <v-icon icon="mdi-chevron-left"></v-icon>
-      تسجيل الدخول
-    </v-btn>
+  <v-app class="navbar">
+    <v-app-bar app color="#EEE">
+      <v-app-bar-nav-icon v-if="smAndDown"></v-app-bar-nav-icon>
+      <v-btn depressed>
+        <i class="fal fa-sign-in me-3" />
+        <v-icon icon="mdi-chevron-left"></v-icon>
+        تسجيل الدخول
+      </v-btn>
 
-    <nuxt-link class="link ll" to="/Skills">
-      تصفح المهارات</nuxt-link
-    >
-    <nuxt-link class="link" to="/">تواصل معنا </nuxt-link>
-    <v-toolbar-title>
+      <nuxt-link class="link ll" to="/Skills"> تصفح المهارات</nuxt-link>
+      <nuxt-link class="link" to="/">تواصل معنا </nuxt-link>
+      <v-toolbar-title>
+        <!-- Spacer -->
+        <v-spacer></v-spacer>
 
-       <!-- Spacer -->
-    <v-spacer></v-spacer>
+        <v-img src="../assets/images/images.jpg" max-height="48"></v-img>
+      </v-toolbar-title>
 
-      <v-img src="../assets/images/images.jpg" max-height="48"></v-img>
-    </v-toolbar-title>
+      <v-toolbar-title>
+        <v-img src="/path/to/your/logo.png" max-height="48"></v-img>
+      </v-toolbar-title>
 
+      <!-- Spacer -->
+      <v-spacer></v-spacer>
+      <nuxt-link to="/"
+        ><img class="logo" src="../assets/images/images.jpg" alt="logo"
+      /></nuxt-link>
 
-
-
-    <v-toolbar-title>
-      <v-img src="/path/to/your/logo.png" max-height="48"></v-img>
-    </v-toolbar-title>
-
-    <!-- Spacer -->
-    <v-spacer></v-spacer>
-      <nuxt-link to="/"><img class="logo" src="../assets/images/images.jpg"  alt="logo"></nuxt-link>
-
-
-
-    <!-- Logout Button -->
-
-
-  </v-app-bar>
-</v-app>
+      <!-- Logout Button -->
+    </v-app-bar>
+  </v-app>
 </template>
 
 <script>
-export default defineComponent({});
+export default defineComponent({
+  computed: {
+    smAndDown() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return true;
+        case "sm":
+          return true;
+        case "md":
+          return false;
+        case "lg":
+          return false;
+        case "xl":
+          return false;
+        default:
+          return false;
+      }
+    },
+  },
+});
 </script>
 <style scoped>
 .link {
@@ -51,7 +63,7 @@ export default defineComponent({});
   margin-right: 5px;
   padding: 3px;
 }
-.navbar  {
+.navbar {
   height: 64px !important;
 }
 
@@ -67,9 +79,8 @@ export default defineComponent({});
   background-color: rgba(221, 221, 221, 0.303);
 }
 .logo {
- width: 50px;
+  width: 50px;
 }
-
 </style>
 
 <!-- <v-row>
